@@ -4,8 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Dependencies
 
-### `npm i @mui/material @emotion/react @emotion/styled @mui/material @mui/styled-engine-sc styled-components @mui/icons-material @mui/x-data-grid react-router-dom@6 @fullcalendar/core @fullcalendar/daygrid`
-### `@fullcalendar/interaction @fullcalendar/list @fullcalendar/react @fullcalendar/timegrid @nivo/bar @nivo/core @nivo/geo @nivo/line @nivo/pie formik yup react-pro-sidebar`
+### `npm install @mui/material @emotion/react @emotion/styled @mui/material @mui/styled-engine-sc styled-components @mui/icons-material @mui/x-data-grid react-router-dom@6 @fullcalendar/core @fullcalendar/daygrid`
+### `npm install @fullcalendar/interaction @fullcalendar/list @fullcalendar/react @fullcalendar/timegrid @nivo/bar @nivo/core @nivo/geo @nivo/line @nivo/pie formik yup react-pro-sidebar`
 
 ## Available Scripts
 

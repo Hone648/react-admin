@@ -49,10 +49,16 @@ const Form = () => {
     }
     setOpen(false);
   };
+  const restoreForm = (value) => {
+    for (const key in value) {
+      value[key] = '';
+    }
+  };
   const handleFormSubmit = (value) => {
     setUserFirstName(value.firstName);
     setUserLastName(value.lastName);
     setOpen(true);
+    restoreForm(value);
   };
   return (
     <Box m="20px">

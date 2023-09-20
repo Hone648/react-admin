@@ -14,6 +14,9 @@ const initialValues = {
   contact: '',
   address1: '',
   address2: '',
+  city: '',
+  state: '',
+  zipCode: '',
 };
 
 const Alert = React.forwardRef(function Alert(props, ref) {
@@ -32,6 +35,9 @@ const userSchema = yup.object().shape({
     .required('required'),
   address1: yup.string().required('required'),
   address2: yup.string(),
+  city: yup.string().required('required'),
+  state: yup.string().required('required'),
+  zipCode: yup.string().required('required'),
 });
 
 const Form = () => {
@@ -40,9 +46,6 @@ const Form = () => {
   const [userLastName, setUserLastName] = useState('');
 
   const isNonMobile = useMediaQuery('(min-width:600px)');
-  const handleClick = () => {
-    setOpen(true);
-  };
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
       return;
@@ -164,6 +167,45 @@ const Form = () => {
                 helperText={touched.address2 && errors.address2}
                 sx={{ gridColumn: 'span 4' }}
               />
+              <TextField
+                fullWidth
+                variant="filled"
+                type="text"
+                label="City"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.city}
+                name="city"
+                error={!!touched.city && !!errors.city}
+                helperText={touched.city && errors.city}
+                sx={{ gridColumn: 'span 2' }}
+              />
+              <TextField
+                fullWidth
+                variant="filled"
+                type="text"
+                label="State"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.state}
+                name="state"
+                error={!!touched.state && !!errors.state}
+                helperText={touched.state && errors.state}
+                sx={{ gridColumn: 'span 1' }}
+              />
+              <TextField
+                fullWidth
+                variant="filled"
+                type="text"
+                label="ZipCode"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.zipCode}
+                name="zipCode"
+                error={!!touched.zipCode && !!errors.zipCode}
+                helperText={touched.zipCode && errors.zipCode}
+                sx={{ gridColumn: 'span 1' }}
+              />
             </Box>
             <Box display="flex" justifyContent="end" mt="20px">
               <Button type="submit" color="secondary" variant="contained">
@@ -178,7 +220,7 @@ const Form = () => {
           {userFirstName +
             ' ' +
             userLastName +
-            's profile has successfully been created!'}
+            "'s profile has successfully been created!"}
         </Alert>
       </Snackbar>
     </Box>

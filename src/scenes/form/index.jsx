@@ -22,22 +22,28 @@ const initialValues = {
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
-
 const phoneRegExp =
   /^(\+\d{1,2}\s?)?1?\-?\.?\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
+const zipRegExp = /^[0-9]{5}(?:-[0-9]{4})?$/;
 const userSchema = yup.object().shape({
-  firstName: yup.string().required('required'),
-  lastName: yup.string().required('required'),
+  firstName: yup
+    .string()
+    .min(2, 'First name must be at least 2 characters')
+    .required('Required'),
+  lastName: yup
+    .string()
+    .min(2, 'Last name must be at least 2 characters')
+    .required('Required'),
   email: yup.string().email('Invalid email address').required('required'),
   contact: yup
     .string()
     .matches(phoneRegExp, 'Phone number is not valid')
-    .required('required'),
-  address1: yup.string().required('required'),
+    .required('Required'),
+  address1: yup.string().required('Required'),
   address2: yup.string(),
-  city: yup.string().required('required'),
-  state: yup.string().required('required'),
-  zipCode: yup.string().required('required'),
+  city: yup.string().required('Required'),
+  state: yup.string().required('Required'),
+  zipCode: yup.string().matches(zipRegExp, 'Invalid').required('Required'),
 });
 
 const Form = () => {

@@ -2,12 +2,16 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Dependencies
+
+### `npm i @mui/material @emotion/react @emotion/styled @mui/material @mui/styled-engine-sc styled-components @mui/icons-material @mui/x-data-grid`
+
 ## Available Scripts
 
 In the project directory, you can run:
 
 ### `npm start`
-### `npm i @mui/material @emotion/react @emotion/styled @mui/material @mui/styled-engine-sc styled-components @mui/icons-material @mui/x-data-grid`
+
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.

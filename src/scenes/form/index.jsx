@@ -1,8 +1,11 @@
-import { Box, Button, TextField } from '@mui/material';
+import * as React from 'react';
+import { Box, Button, TextField, Snackbar } from '@mui/material';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Header from '../../components/header';
+import MuiAlert from '@mui/material/Alert';
+import { useState } from 'react';
 
 const initialValues = {
   firstName: '',
@@ -12,6 +15,10 @@ const initialValues = {
   address1: '',
   address2: '',
 };
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 const phoneRegExp =
   /^(\+\d{1,2}\s?)?1?\-?\.?\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
@@ -26,11 +33,26 @@ const userSchema = yup.object().shape({
   address1: yup.string().required('required'),
   address2: yup.string(),
 });
-const Form = () => {
-  const isNonMobile = useMediaQuery('(min-width:600px)');
 
+const Form = () => {
+  const [open, setOpen] = useState(false);
+  const [userFirstName, setUserFirstName] = useState('');
+  const [userLastName, setUserLastName] = useState('');
+
+  const isNonMobile = useMediaQuery('(min-width:600px)');
+  const handleClick = () => {
+    setOpen(true);
+  };
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpen(false);
+  };
   const handleFormSubmit = (value) => {
-    console.log(value);
+    setUserFirstName(value.firstName);
+    setUserLastName(value.lastName);
+    setOpen(true);
   };
   return (
     <Box m="20px">
@@ -145,6 +167,14 @@ const Form = () => {
           </form>
         )}
       </Formik>
+      <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+          {userFirstName +
+            ' ' +
+            userLastName +
+            's profile has successfully been created!'}
+        </Alert>
+      </Snackbar>
     </Box>
   );
 };

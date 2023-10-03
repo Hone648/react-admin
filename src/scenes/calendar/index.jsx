@@ -113,13 +113,13 @@ const Calendar = () => {
             initialEvents={[
               {
                 id: '123',
-                title: 'All-day event',
-                date: '2023-09-14',
+                title: 'Out of Office',
+                date: '2023-10-14',
               },
               {
                 id: '456',
-                title: 'Timed event',
-                date: '2023-09-28',
+                title: 'Meeting with Robert Morrison',
+                date: '2023-10-28',
               },
             ]}
           />

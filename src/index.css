@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap');
 
 html,
 body,
@@ -7,7 +8,7 @@ body,
 .content {
   height: 100%;
   width: 100%;
-  font-family: 'Source Sans 3', sans-serif;
+  font-family: 'AR One Sans', sans-serif;
 }
 .fc-theme-standard .fc-list-day-cushion {
   background-color: #c3c6fd;

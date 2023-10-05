@@ -37,13 +37,14 @@ const BarChart = ({ isDashboard = false }) => {
           },
         },
       }}
-      keys={['hot dog', 'burger', 'sandwich', 'kebab', 'fries', 'donut']}
-      indexBy="country"
+      keys={['voltage']}
+      indexBy="battery"
       margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
       padding={0.3}
+      maxValue={16}
       valueScale={{ type: 'linear' }}
       indexScale={{ type: 'band', round: true }}
-      colors={{ scheme: 'nivo' }}
+      colors={{ scheme: 'paired' }}
       defs={[
         {
           id: 'dots',
@@ -64,20 +65,6 @@ const BarChart = ({ isDashboard = false }) => {
           spacing: 10,
         },
       ]}
-      fill={[
-        {
-          match: {
-            id: 'fries',
-          },
-          id: 'dots',
-        },
-        {
-          match: {
-            id: 'sandwich',
-          },
-          id: 'lines',
-        },
-      ]}
       borderColor={{
         from: 'color',
         modifiers: [['darker', '1.4']],
@@ -88,15 +75,15 @@ const BarChart = ({ isDashboard = false }) => {
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        legend: isDashboard ? undefined : 'country',
+        legend: isDashboard ? undefined : 'Batteries',
         legendPosition: 'middle',
-        legendOffset: 32,
+        legendOffset: 45,
       }}
       axisLeft={{
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        legend: 'food',
+        legend: 'Voltage',
         legendPosition: 'middle',
         legendOffset: -40,
       }}
@@ -104,7 +91,7 @@ const BarChart = ({ isDashboard = false }) => {
       labelSkipHeight={12}
       labelTextColor={{
         from: 'color',
-        modifiers: [['darker', 1.6]],
+        modifiers: [['darker', 3]],
       }}
       legends={[
         {
@@ -120,14 +107,14 @@ const BarChart = ({ isDashboard = false }) => {
           itemDirection: 'left-to-right',
           itemOpacity: 0.85,
           symbolSize: 20,
-          effects: [
-            {
-              on: 'hover',
-              style: {
-                itemOpacity: 1,
-              },
-            },
-          ],
+          // effects: [
+          //   {
+          //     on: 'hover',
+          //     style: {
+          //       itemOpacity: 1,
+          //     },
+          //   },
+          // ],
         },
       ]}
       role="application"

@@ -107,14 +107,14 @@ const BarChart = ({ isDashboard = false }) => {
           itemDirection: 'left-to-right',
           itemOpacity: 0.85,
           symbolSize: 20,
-          // effects: [
-          //   {
-          //     on: 'hover',
-          //     style: {
-          //       itemOpacity: 1,
-          //     },
-          //   },
-          // ],
+          effects: [
+            {
+              on: 'hover',
+              style: {
+                itemOpacity: 1,
+              },
+            },
+          ],
         },
       ]}
       role="application"
